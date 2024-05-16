@@ -1,4 +1,6 @@
-import { Image, View, Text, TouchableOpacity } from 'react-native';
+import { Image, View, Text } from 'react-native';
+import { useNavigation  } from '@react-navigation/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import landingImg from '../../assets/images/landing.png';
 import studyIcon from '../../assets/images/icons/study.png'
@@ -9,6 +11,13 @@ import { styles } from './styles';
 
 
 export function Landing(){
+  const {navigate} = useNavigation();
+  function hadleNavigationToGiveClassesPage(){
+    navigate('GiveClasses' as never);
+  }
+  function handleNavigateToStudyPages(){
+    navigate('Study' as never);
+  }
   return (
     <View style={styles.container}>
       <Image source={landingImg} />
@@ -19,14 +28,20 @@ export function Landing(){
         </Text>
       </Text>
       <View style={styles.buttonsContainer} >
-        <TouchableOpacity style={[styles.button, styles.buttonPrimary]}>
+        <RectButton 
+          style={[styles.button, styles.buttonPrimary]}
+          onPress={handleNavigateToStudyPages}
+        >
           <Image source={studyIcon} />
           <Text style={styles.buttonText}>Estudar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.buttonSecondary]}>
+        </RectButton>
+        <RectButton 
+          style={[styles.button, styles.buttonSecondary]}
+          onPress={hadleNavigationToGiveClassesPage}
+        >
           <Image source={giveClassesIcon} />
-          <Text style={styles.buttonText}>Estudar</Text>
-        </TouchableOpacity>
+          <Text style={styles.buttonText}>Dar Aulas</Text>
+        </RectButton>
       </View>
       <Text style={styles.totalConnections}> 
         Total de 285 conexões já realizadas {' '}
