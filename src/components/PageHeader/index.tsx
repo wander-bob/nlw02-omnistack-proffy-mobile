@@ -11,7 +11,7 @@ import { ReactNode } from 'react';
 interface PageHeaderProps {
   title: string;
   headerRight?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export function PageHeader({title, headerRight, children}: PageHeaderProps){

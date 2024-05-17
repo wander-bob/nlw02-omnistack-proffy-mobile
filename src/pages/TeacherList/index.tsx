@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, ScrollView, Text, TextInput} from 'react-native';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
@@ -13,7 +14,7 @@ import { api } from '../../services/api';
 
 export function TeacherList(){
   const [isFiltersVisible, setIsFiltersVisible]=useState(false);
-  const [favorites, setFavorites] = useState<number[]>([])
+  const [favorites, setFavorites] = useState<number[]>([]);
   const [subject, setSubject] = useState('');
   const [week_day, setWeek_Day] = useState('');
   const [time, setTime] = useState('');
